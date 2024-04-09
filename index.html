@@ -16,23 +16,11 @@ body, html {
   height: calc(100% - 20px); /* Account for 10px margin on top and bottom */
   margin: 10px;
 }
-
-#object {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  border-radius: 50%;
-  bottom: 0;
-  right: 0;
-  transform-origin: bottom right;
-}
 </style>
 </head>
 <body>
-<div id="container">
-  <div id="object"></div>
-</div>
+<img id="container" src="lime.svg" alt="Lime">
+<img id="object" src="face.svg" alt="Eyes">
 <script>
 document.addEventListener('mousemove', function(e) {
   var object = document.getElementById('object');
