@@ -12,8 +12,9 @@ body, html {
 
 #container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 20px); /* Account for 10px margin on each side */
+  height: calc(100% - 20px); /* Account for 10px margin on top and bottom */
+  margin: 10px;
 }
 
 #object {
