@@ -18,14 +18,15 @@ body, html {
 }
 
 #object {
+  position: absolute;
   width: 45px;
-  height: 45px;
+  height: auto;
 }
 </style>
 </head>
 <body>
-<img id="container" src="lime.jpeg" alt="Lime">
-<img id="object" src="face.jpeg" alt="Eyes">
+  <img id="container" src="lime.jpeg" alt="Lime">
+  <img id="object" src="face.png" alt="Eyes">
 <script>
 document.addEventListener('mousemove', function(e) {
   var object = document.getElementById('object');
@@ -35,14 +36,9 @@ document.addEventListener('mousemove', function(e) {
   var mouseX = e.clientX - container.getBoundingClientRect().left;
   var mouseY = e.clientY - container.getBoundingClientRect().top;
   
-  // Calculate the angle between the cursor and the bottom-right corner of the container
-  var angle = Math.atan2(container.clientHeight - mouseY, container.clientWidth - mouseX);
-  
-  // Convert radians to degrees
-  var angleDegrees = angle * (180 / Math.PI);
-  
-  // Apply rotation to the object
-  object.style.transform = 'rotate(' + angleDegrees + 'deg)';
+  // Set the position of the face image based on the cursor position
+  object.style.left = mouseX - (object.offsetWidth / 2) + 'px';
+  object.style.top = mouseY - (object.offsetHeight / 2) + 'px';
 });
 </script>
 </body>
