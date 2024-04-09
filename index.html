@@ -36,9 +36,13 @@ document.addEventListener('mousemove', function(e) {
   var mouseX = e.clientX - container.getBoundingClientRect().left;
   var mouseY = e.clientY - container.getBoundingClientRect().top;
   
-  // Set the position of the face image based on the cursor position
-  object.style.left = mouseX - (object.offsetWidth / 2) + 'px';
-  object.style.top = mouseY - (object.offsetHeight / 2) + 'px';
+  // Calculate the position of the eyes relative to the cursor position within the lime container
+  var offsetX = (mouseX - (container.offsetWidth / 2)) * 0.1; // Adjust the factor to control eye movement
+  var offsetY = (mouseY - (container.offsetHeight / 2)) * 0.1; // Adjust the factor to control eye movement
+  
+  // Set the position of the eyes
+  object.style.left = (container.offsetWidth / 2 - object.offsetWidth / 2 + offsetX) + 'px';
+  object.style.top = (container.offsetHeight / 2 - object.offsetHeight / 2 + offsetY) + 'px';
 });
 </script>
 </body>
