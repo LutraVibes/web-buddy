@@ -36,13 +36,9 @@ document.addEventListener('mousemove', function(e) {
   var mouseX = e.clientX - container.getBoundingClientRect().left;
   var mouseY = e.clientY - container.getBoundingClientRect().top;
   
-  // Calculate the normalized position of the cursor within the container (0 to 1)
-  var normalizedX = mouseX / container.offsetWidth;
-  var normalizedY = mouseY / container.offsetHeight;
-  
   // Calculate the position of the eyes relative to the cursor position within the lime container
-  var offsetX = (normalizedX - 0.5) * container.offsetWidth; // Calculate X offset
-  var offsetY = (normalizedY - 0.5) * container.offsetHeight; // Calculate Y offset
+  var offsetX = mouseX - (container.offsetWidth / 2) - (object.offsetWidth / 2); // Calculate X offset
+  var offsetY = mouseY - (container.offsetHeight / 2) - (object.offsetHeight / 2); // Calculate Y offset
   
   // Restrict the eyes within the bounds of the container
   offsetX = Math.max(-object.offsetWidth / 2, Math.min(container.offsetWidth - object.offsetWidth / 2, offsetX));
