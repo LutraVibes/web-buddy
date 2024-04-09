@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor Tracking</title>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#object {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="object"></div>
+</div>
+<script>
+document.addEventListener('mousemove', function(e) {
+  var object = document.getElementById('object');
+  var container = document.getElementById('container');
+  
+  // Calculate the position of the cursor relative to the container
+  var mouseX = e.clientX - container.getBoundingClientRect().left;
+  var mouseY = e.clientY - container.getBoundingClientRect().top;
+  
+  // Calculate the angle between the cursor and the bottom-right corner of the container
+  var angle = Math.atan2(container.clientHeight - mouseY, container.clientWidth - mouseX);
+  
+  // Convert radians to degrees
+  var angleDegrees = angle * (180 / Math.PI);
+  
+  // Apply rotation to the object
+  object.style.transform = 'rotate(' + angleDegrees + 'deg)';
+});
+</script>
+</body>
+</html>
