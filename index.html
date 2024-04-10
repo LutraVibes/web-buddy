@@ -31,11 +31,11 @@ body, html {
 }
 
 #container:hover #object {
-  display: block; /* Show the face image when hovering */
+  content: url('smile.png'); /* Replace the face with smile.png when hovering */
 }
 
 #container:not(:hover) #object {
-  display: none; /* Hide the face image when not hovering */
+  content: url('face.png'); /* Show the original face.png when not hovering */
 }
 </style>
 </head>
