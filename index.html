@@ -63,7 +63,6 @@ document.addEventListener('mousemove', function(e) {
   
   // Show the face image when the cursor moves for the first time
   object.style.display = 'block';
-  container.style.display = 'none'; // Hide the lime image
   // Remove the event listener to prevent further calls
   document.removeEventListener('mousemove', handleFirstMove);
 });
@@ -71,11 +70,9 @@ document.addEventListener('mousemove', function(e) {
 // Event handler to handle the first cursor movement
 function handleFirstMove(e) {
   var object = document.getElementById('object');
-  var container = document.getElementById('container');
   
   // Show the face image when the cursor moves for the first time
   object.style.display = 'block';
-  container.style.display = 'none'; // Hide the lime image
   // Remove the event listener to prevent further calls
   document.removeEventListener('mousemove', handleFirstMove);
 }
