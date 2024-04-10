@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Buddy
-</title>
+<title>Web Buddy</title>
 <style>
 body, html {
   height: 100%;
@@ -40,13 +39,13 @@ body, html {
 </style>
 </head>
 <body>
-  <div id="container">
+  <div id="lime">
     <img id="container" src="lime.png" alt="Lime">
     <img id="object" src="face.png" alt="Eyes">
   </div>
 <script>
 // Preload images
-var images = ['face.png', 'smile.png'];
+var images = ['face.png', 'smile.png', 'static-lime.png'];
 preloadImages(images);
 
 function preloadImages(array) {
@@ -76,6 +75,14 @@ document.addEventListener('mousemove', function(e) {
   object.style.left = (container.offsetWidth / 2 - object.offsetWidth / 2 + offsetX) + 'px';
   object.style.top = (container.offsetHeight / 2 - object.offsetHeight / 2 + offsetY) + 'px';
 });
+
+// Check if the device supports mouse events
+if (!('onmousemove' in document.documentElement)) {
+  var lime = document.getElementById('lime');
+  var container = document.getElementById('container');
+  lime.style.display = 'none'; // Hide the container
+  container.src = 'static-lime.png'; // Replace the container image with static-lime.png
+}
 </script>
 </body>
 </html>
