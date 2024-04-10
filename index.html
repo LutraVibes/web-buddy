@@ -40,15 +40,14 @@ body, html {
 </style>
 </head>
 <body>
-  <div id="container">
-    <img id="container-img" src="lime.png" alt="Lime">
+  <div id="lime">
+    <img id="container" src="lime.png" alt="Lime">
     <img id="object" src="face.png" alt="Eyes">
   </div>
 <script>
 document.addEventListener('mousemove', function(e) {
   var object = document.getElementById('object');
   var container = document.getElementById('container');
-  var containerImg = document.getElementById('container-img');
   
   // Calculate the position of the cursor relative to the container
   var mouseX = e.clientX - container.getBoundingClientRect().left;
@@ -64,7 +63,7 @@ document.addEventListener('mousemove', function(e) {
   
   // Show the face image when the cursor moves for the first time
   object.style.display = 'block';
-  containerImg.style.display = 'none'; // Hide the lime image
+  container.style.display = 'none'; // Hide the lime image
   // Remove the event listener to prevent further calls
   document.removeEventListener('mousemove', handleFirstMove);
 });
@@ -72,11 +71,11 @@ document.addEventListener('mousemove', function(e) {
 // Event handler to handle the first cursor movement
 function handleFirstMove(e) {
   var object = document.getElementById('object');
-  var containerImg = document.getElementById('container-img');
+  var container = document.getElementById('container');
   
   // Show the face image when the cursor moves for the first time
   object.style.display = 'block';
-  containerImg.style.display = 'none'; // Hide the lime image
+  container.style.display = 'none'; // Hide the lime image
   // Remove the event listener to prevent further calls
   document.removeEventListener('mousemove', handleFirstMove);
 }
