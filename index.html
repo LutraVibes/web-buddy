@@ -3,39 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cursor Tracking</title>
+<title>Web Buddy</title>
 <style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
 
-#container {
-  position: relative;
-  width: 65px;
-  height: 65px;
-  margin: 10px;
-  transition: transform 0.3s ease-in-out;
-}
+  #container {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
 
-#object {
-  position: absolute;
-  width: 65px;
-  height: auto;
-  margin: 10px;
-}
+  #object {
+    position: absolute;
+    width: 65px;
+    height: auto;
+    margin: 10px;
+  }
 
-#container:hover {
-  transform: scale(1.1); /* Expand the lime when hovering */
-}
+  #container:hover {
+    transform: scale(1.1); /* Expand the lime when hovering */
+  }
 
-#container:hover #object {
-  content: url('smile.png'); /* Replace the face with smile.png when hovering */
-}
+  #container:hover #object {
+    content: url('smile.png'); /* Replace the face with smile.png when hovering */
+  }
 
-#container:not(:hover) #object {
-  content: url('face.png'); /* Show the original face.png when not hovering */
-}
+  #container:not(:hover) #object {
+    content: url('face.png'); /* Show the original face.png when not hovering */
+  }
 </style>
 </head>
 <body>
@@ -44,22 +44,22 @@ body, html {
     <img id="object" src="face.png" alt="Eyes">
   </div>
 <script>
-document.addEventListener('mousemove', function(e) {
-  var object = document.getElementById('object');
-  var container = document.getElementById('container');
+  document.addEventListener('mousemove', function(e) {
+    var object = document.getElementById('object');
+    var container = document.getElementById('container');
   
-  // Calculate the position of the cursor relative to the container
-  var mouseX = e.clientX - container.getBoundingClientRect().left;
-  var mouseY = e.clientY - container.getBoundingClientRect().top;
+    // Calculate the position of the cursor relative to the container
+    var mouseX = e.clientX - container.getBoundingClientRect().left;
+    var mouseY = e.clientY - container.getBoundingClientRect().top;
   
-  // Calculate the position of the eyes relative to the cursor position within the lime container
-  var offsetX = (mouseX - (container.offsetWidth / 2)) * 0.0025; // Adjust the factor to control eye movement
-  var offsetY = (mouseY - (container.offsetHeight / 2)) * 0.0025; // Adjust the factor to control eye movement
+    // Calculate the position of the eyes relative to the cursor position within the lime container
+    var offsetX = (mouseX - (container.offsetWidth / 2)) * 0.0025; // Adjust the factor to control eye movement
+    var offsetY = (mouseY - (container.offsetHeight / 2)) * 0.0025; // Adjust the factor to control eye movement
   
-  // Set the position of the eyes
-  object.style.left = (container.offsetWidth / 2 - object.offsetWidth / 2 + offsetX) + 'px';
-  object.style.top = (container.offsetHeight / 2 - object.offsetHeight / 2 + offsetY) + 'px';
-});
+    // Set the position of the eyes
+    object.style.left = (container.offsetWidth / 2 - object.offsetWidth / 2 + offsetX) + 'px';
+    object.style.top = (container.offsetHeight / 2 - object.offsetHeight / 2 + offsetY) + 'px';
+  });
 </script>
 </body>
 </html>
