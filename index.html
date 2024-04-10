@@ -12,17 +12,17 @@ body, html {
 
 #container {
   position: relative;
-  width: 65px;
-  height: 65px;
+  width: 100px; /* Adjusted width */
+  height: auto;
   margin: 10px;
+  transition: transform 0.3s ease-in-out;
 }
 
 #object {
   position: absolute;
-  width: 65px;
+  width: 100%; /* Adjusted width */
   height: auto;
-  margin: 10px;
-  transition: transform 0.3s ease-in-out;
+  margin: 0;
 }
 
 #container:hover {
