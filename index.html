@@ -22,12 +22,27 @@ body, html {
   width: 65px;
   height: auto;
   margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+#container:hover {
+  transform: scale(1.1); /* Expand the lime when hovering */
+}
+
+#container:hover #object {
+  content: url('smile.png'); /* Replace the face with smile.png when hovering */
+}
+
+#container:not(:hover) #object {
+  content: url('face.png'); /* Show the original face.png when not hovering */
 }
 </style>
 </head>
 <body>
-  <img id="container" src="lime.png" alt="Lime">
-  <img id="object" src="face.png" alt="Eyes">
+  <div id="container">
+    <img id="lime" src="lime.png" alt="Lime">
+    <img id="object" src="face.png" alt="Eyes">
+  </div>
 <script>
 document.addEventListener('mousemove', function(e) {
   var object = document.getElementById('object');
